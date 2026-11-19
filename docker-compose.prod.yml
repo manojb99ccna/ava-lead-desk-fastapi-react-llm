@@ -1,0 +1,31 @@
+# Production override:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+# - backend: no hot reload, non-root user, no source bind-mount (model files still mounted)
+# - frontend: static build served by nginx on port 80 (proxies /api to the backend)
+# - database and phpMyAdmin are not published to the host
+services:
+  db:
+    ports: !reset []
+  phpmyadmin:
+    profiles: ["tools"]   # start only with: --profile tools
+  backend:
+    build:
+      context: ./backend
+      target: prod
+    image: ava-llm-backend:prod
+    ports: !reset []
+    environment:
+      APP_ENV: production
+      CHAT_DEBUG_LOGS: "false"
+    volumes: !override
+      - ./backend/llm_models:/app/llm_models
+      - ./backend/logs:/app/logs
+  frontend:
+    build:
+      context: ./frontend
+      target: prod
+    image: ava-llm-frontend:prod
+    environment: !reset []
+    ports: !override
+      - "80:80"
+    volumes: !reset []

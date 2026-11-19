@@ -1,0 +1,30 @@
+# Node
+node_modules/
+frontend/dist/
+
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Env
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local LLM weights and logs
+backend/llm_models/
+backend/logs/
+.pytest_cache/
+backups/
+
+# Database dumps (contain customer data and password hashes)
+*.sql
+*.sql.gz
+
+# Local tooling
+.claude/
+*.log

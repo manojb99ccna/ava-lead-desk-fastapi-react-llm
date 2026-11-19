@@ -1,0 +1,94 @@
+name: ava-ai-llm
+
+# Separate copy of Ava AI Receptionist.
+# Uses its own container names, ports, network and DB volume, so it can run
+# side by side with the original project (ava-ai-*, ports 5180/8310/8320/3325).
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: ava-llm-db
+    # Native password auth so older clients (XAMPP, HeidiSQL, Navicat) can connect
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secret
+      MYSQL_DATABASE: ava_ai
+      MYSQL_USER: ava
+      MYSQL_PASSWORD: ava_secret
+    ports:
+      - "3335:3306"
+    volumes:
+      - ava_llm_db_data:/var/lib/mysql
+    networks:
+      - ava_llm_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uava", "-pava_secret"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: ava-llm-phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8420:80"
+    networks:
+      - ava_llm_net
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      target: dev
+    image: ava-llm-backend
+    container_name: ava-llm-backend
+    # The local LLM uses ~2.5 GB; the cap stops it from starving Docker and other containers.
+    mem_limit: 4g
+    env_file: ./backend/.env
+    environment:
+      HF_HUB_DISABLE_TELEMETRY: "1"
+    ports:
+      - "8410:8000"
+    volumes:
+      # Source code (hot reload). The local LLM files live in backend/llm_models/ on your D: drive.
+      - ./backend:/app
+      - /app/venv
+    networks:
+      - ava_llm_net
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    image: ava-llm-frontend
+    container_name: ava-llm-frontend
+    environment:
+      - API_TARGET=http://backend:8000
+    ports:
+      - "5190:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - ava_llm_net
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  ava_llm_net:
+    name: ava-llm-net
+
+volumes:
+  ava_llm_db_data:
+    name: ava-llm-db-data

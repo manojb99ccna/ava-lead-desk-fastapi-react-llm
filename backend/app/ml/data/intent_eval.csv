@@ -1,0 +1,75 @@
+text,intent
+"Hey, good to see a chat here",greeting
+"hiiii",greeting
+"Hello! Is this the right place to ask about websites?",greeting
+"morning team",greeting
+"namaskar",greeting
+"Hi I am Deepak from Pune",greeting
+"ok that's everything, bye!",goodbye
+"Cheers, talk soon",goodbye
+"alright, I'll leave it here. bye",goodbye
+"gotta go now",goodbye
+"Thanks, really helpful",thanks
+"thank u very much",thanks
+"great, appreciate the quick answer",thanks
+"shukriya bhai",thanks
+"Could I come in on Thursday to discuss a project?",appointment
+"I'd like to set up a call with your designer",appointment
+"Is there a slot free tomorrow afternoon for a consultation?",appointment
+"want to book time with you guys",appointment
+"kal 3 baje meeting ho sakti hai?",appointment
+"Can we do a video call on Friday?",appointment
+"I can't attend my booking anymore, please cancel",cancel_appointment
+"Please cancel AVA-X7K2PQ",cancel_appointment
+"I'd like to call off tomorrow's consultation",cancel_appointment
+"cancle my apointment",cancel_appointment
+"something came up, can we do Monday instead of Friday",reschedule_appointment
+"Can I push my consultation to the afternoon?",reschedule_appointment
+"need to move my booking to next week",reschedule_appointment
+"pls change my meeting time",reschedule_appointment
+"Are you guys open on Diwali weekend?",business_hours
+"till when is your office open today",business_hours
+"r u open sat",business_hours
+"what are your working days",business_hours
+"Where can I find your office?",contact
+"Do you have an email I can write to?",contact
+"what's ur phone no",contact
+"Can I visit you? What's the address",contact
+"Roughly what would an online shop cost?",pricing
+"Do you have fixed packages or hourly rates?",pricing
+"is a basic website under 20k?",pricing
+"kitna charge karte ho",pricing
+"Do you also do mobile apps?",services
+"Can you help with SEO for my existing site?",services
+"what kind of projects do you take",services
+"do u guys make wordpress sites",services
+"I run a bakery and need a site, can you quote?",lead_inquiry
+"please have someone ring me on 9876512345",lead_inquiry
+"We're a startup looking for a dev partner",lead_inquiry
+"Interested in a CRM for my clinic",lead_inquiry
+"send me a proposal for an online store",lead_inquiry
+"I filled your form last week and got no reply",follow_up
+"any progress on the quote you were preparing?",follow_up
+"still waiting for your callback",follow_up
+"what happened with my request from Monday",follow_up
+"I'd rather speak with a person",human_escalation
+"can you connect me to your sales team",human_escalation
+"bot se nahi, insaan se baat karni hai",human_escalation
+"Let me talk to someone senior",human_escalation
+"The site you built for me keeps crashing",complaint
+"I'm very unhappy, the payment page doesn't work",complaint
+"this is the third time I'm asking, nobody helps",complaint
+"terrible support",complaint
+"If I'm not satisfied, do I get my advance back?",refund_policy
+"what's the refund process",refund_policy
+"money back possible?",refund_policy
+"Who is the best cricket player?",out_of_scope
+"can you help me with my maths homework",out_of_scope
+"what's the news today",out_of_scope
+"tell me something funny",out_of_scope
+"yeah go for it",affirm
+"sure thing",affirm
+"yes, that works for me",affirm
+"nah I'm good",decline
+"no, not right now",decline
+"i don't need any appointment",decline

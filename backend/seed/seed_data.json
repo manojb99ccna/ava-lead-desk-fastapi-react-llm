@@ -1,0 +1,47 @@
+{
+  "_comment": "SAMPLE starter data. Loaded only into EMPTY tables on first start. Edit the real values in the admin panel (Business, FAQs).",
+  "business": {
+    "business_name": "WebeXcellence",
+    "description": "WebeXcellence builds websites and web applications for businesses.",
+    "phone": null,
+    "email": null,
+    "address": null,
+    "website": null,
+    "timezone": "Asia/Kolkata",
+    "appointment_duration_minutes": 60,
+    "booking_window_days": 7
+  },
+  "working_hours": [
+    {"day_of_week": 0, "is_open": true, "opening_time": "09:00", "closing_time": "18:00"},
+    {"day_of_week": 1, "is_open": true, "opening_time": "09:00", "closing_time": "18:00"},
+    {"day_of_week": 2, "is_open": true, "opening_time": "09:00", "closing_time": "18:00"},
+    {"day_of_week": 3, "is_open": true, "opening_time": "09:00", "closing_time": "18:00"},
+    {"day_of_week": 4, "is_open": true, "opening_time": "09:00", "closing_time": "18:00"},
+    {"day_of_week": 5, "is_open": true, "opening_time": "10:00", "closing_time": "14:00"},
+    {"day_of_week": 6, "is_open": false, "opening_time": null, "closing_time": null}
+  ],
+  "services": [
+    {"name": "Website Design", "description": "Custom, mobile-friendly business websites.", "price": null, "duration_minutes": null},
+    {"name": "Web Application Development", "description": "Custom web apps, portals and dashboards.", "price": null, "duration_minutes": null},
+    {"name": "E-commerce Development", "description": "Online stores with payments and product management.", "price": null, "duration_minutes": null},
+    {"name": "Website Maintenance", "description": "Updates, backups, security and support.", "price": null, "duration_minutes": null}
+  ],
+  "faqs": [
+    {"intent": "services", "question": "What services do you offer?", "answer": "We offer website design, web application development, e-commerce development and website maintenance. Would you like to book a consultation?"},
+    {"intent": "pricing", "question": "How much does a website cost?", "answer": "The price depends on your requirements. Book a free consultation and our team will prepare a quote for you."},
+    {"intent": "business_hours", "question": "What are your opening hours?", "answer": "We are open Monday to Friday 9:00 to 18:00 and Saturday 10:00 to 14:00. We are closed on Sunday."},
+    {"intent": "appointment", "question": "How do I book a consultation?", "answer": "I can book it for you right here in the chat. Just say 'book an appointment'."},
+    {"intent": "refund_policy", "question": "What is your refund policy?", "answer": "Refund terms are agreed in each project contract. Our team can explain the details for your project."}
+  ],
+  "intents": {
+    "greeting": ["hi", "hello", "hey there", "good morning", "good evening", "hello ava", "hey, anyone there?", "hi, I need some help"],
+    "goodbye": ["bye", "goodbye", "see you", "thanks, bye", "that is all, thank you", "have a nice day", "talk to you later", "ok thanks bye"],
+    "appointment": ["I want to book an appointment", "can I schedule a meeting", "book a consultation", "I'd like to make an appointment", "schedule a call with your team", "are you free tomorrow for a meeting", "I need an appointment", "set up a meeting please"],
+    "business_hours": ["what are your opening hours", "when are you open", "are you open on saturday", "what time do you close", "office timings", "are you open today", "working hours please", "do you work on weekends"],
+    "contact": ["how can I contact you", "what is your phone number", "give me your email address", "where is your office", "how do I reach you", "your address please", "contact details", "can I call you"],
+    "pricing": ["how much does it cost", "what are your prices", "website price", "how much do you charge", "pricing for an online store", "is it expensive", "cost of a web app", "rates for maintenance"],
+    "services": ["what services do you offer", "do you build websites", "can you make an online store", "what do you do", "do you develop web apps", "do you offer maintenance", "list your services", "can you redesign my site"],
+    "human_escalation": ["I want to talk to a human", "connect me to a real person", "can I speak with someone", "I need a representative", "let me talk to your staff", "this is not helping, get me a person", "transfer me to an agent", "I want to speak to the manager"],
+    "refund_policy": ["what is your refund policy", "can I get my money back", "do you give refunds", "how do refunds work", "I want a refund", "is there a money back guarantee", "refund terms", "cancellation and refund"]
+  }
+}
